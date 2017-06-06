@@ -1,0 +1,377 @@
+/*NavBar*/
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-fluid-fix {
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar .container-fluid>.navbar-header {
+    float: left;
+}
+.navbar-inverse {
+    background-color: #F8F8F8;
+    border: none;
+}
+.navbar .navbar-nav {
+    float: left;
+    margin: 0;
+}
+.nav>li {
+    float: left;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand>img {
+    height: 40rem;
+    padding: 15px;
+    width: 55rem;
+    position: absolute;
+    top: -7rem;
+    left: -2.8rem;
+}
+
+/*NoteEdition*/
+.editionNotesControl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    align-self: stretch;
+    padding: 0.2rem;
+    border-radius: 0.7rem;
+    position: relative;
+}
+
+.editionButtonControls:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
+.editionButtonControls {
+    margin: 0.4rem;
+}
+.editionTextControl {
+    font-size: 1.4rem;
+    font-family:'Love Ya Like A Sister', cursive;
+}
+.form-control:focus {
+    border-color: #ccc;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 188, 134, 1)
+}
+.navBar__images {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+.noteText {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    border-radius: 0.7rem;
+}
+.noteContentFont {
+    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Fanwood Text', serif;
+    font-size: 2rem;
+}
+textarea.form-control {
+    height: 75vh;
+}
+.titleNoteControl {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 2rem;
+    align-self: stretch;
+}
+.titleNoteControl:hover {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-size: 3rem;
+    transition: font-size 1s;
+    flex: 0 1 auto;
+    align-self: stretch;
+}
+.titleNoteControl:focus {
+    color: #FF7138;
+    font-size: 3rem;
+}
+.textButtons{
+    position: absolute;
+    right: 0;
+}
+
+/*Notes*/
+.infoPanelElements
+{
+    align-self: stretch;
+    margin-right: 1rem;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: stretch;
+}
+.borderStyle
+{
+    background: #F8F8F8;
+    margin-bottom: 1rem;
+    border: 0.2rem solid #E7E7E7;  
+}
+.noteAddedTitle {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 1.7rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    flex: 1 1 auto;
+    width:5rem;
+    overflow: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.infoPanelButtons {
+    margin-right: 1rem;
+}
+.hideComponent {
+    display: none;
+    opacity: 0;
+}
+.showComponent {
+    display: block;
+    opacity: 1;
+}
+.noteContentFont {
+    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Fanwood Text', serif;
+    font-size: 2rem;
+}
+.showNoteAnimation
+{
+    background-color: white;
+    margin-bottom: 0rem;
+    max-height: 25vh;
+    overflow: auto;
+    margin-right: 0rem;
+    margin-top: 0.9rem;
+    animation: fade 1s;
+    border-top: 0.2rem solid #E7E7E7;
+    padding-left:1rem;
+}
+.containerOfElements {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 1.3rem 1rem;
+    overflow: auto;
+}
+.headerNoteContainer{
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+}
+.editionButtonControls:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
+.editionButtonControls {
+    margin: 0.4rem;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/*MenuBottons*/
+a {
+    text-decoration: none ;
+    color:black;
+}
+a:hover
+{
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+a:active{
+    color:black;
+}
+.buttons {
+    background-color: transparent;
+    border: none;
+    display:block;
+}
+
+.buttons:hover {
+    background-color: #F6CED8;
+}
+.buttons:focus {
+    border: none;
+    outline: none;
+    background-color: #F5A9D0;
+}
+
+.buttonFontHidden {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 0.8em;
+    margin-left: 0rem;
+    pointer-events: none;
+}
+.hiddenButtons {
+    background-color: #F8F8F8;
+    display: none;
+    height: 5vh;
+    text-align: center;
+}
+.showInlineControl {
+    display: inline-block;
+}
+.hideControl {
+    display: none;
+}
+.showBlockControl {
+    display: block;
+}
+
+.visibleControl
+{
+    visibility:visible;
+    display:inline-block;
+}
+
+.invisibleControl
+{
+    visibility:hidden;
+    display:none;
+}
+
+.inlineContainer {
+    display: inline;
+}
+
+.navBar__hiddenImages {
+    width: 1.5rem;
+    height: 2.5rem;
+    pointer-events: none;
+}
+
+.navBar__images {
+    width: 2.3rem;
+    height: 2.3rem;
+    pointer-events: none;
+}
+
+.navElementSpanVisible {
+    display: none;
+    visibility: hidden;
+}
+
+.navBar__button {
+    width: 4rem;
+    padding-bottom: 0;
+    height: 5rem;
+    margin-right: 0.2rem;
+    display: inline-block;
+}
+
+.displayType
+{
+    display: inline;
+}
+
+/*Main*/
+.secondElement{
+    height: 10vh;
+    margin-left: 2vw;
+}
+.firstElement{
+    padding-left: 0;
+    margin-left:-2vw;
+}
+
+.thirdElement{
+    padding-right: 0;
+}
+
+
+/*InfoPanel*/
+.infoPanel {
+    background-color: transparent;
+    height: 85vh;
+    border: 0.2rem solid #DDD;
+    display: -ms-flexbox;
+    flex-direction: column;
+    padding-left: 1.8rem;
+    overflow: auto;
+    padding-right: 0;
+}
+
+ul#listInformationPanel {
+    list-style-type: none;
+}
+
+/*EditionBar*/
+.editionBar__nav {
+    background-color: #F8F8F8;
+    border: 0.2rem solid #E7E7E7;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 85vh;
+    padding-left: 0;
+}
+.editionBar__button {
+    display: block;
+    padding: 1rem 2rem 1rem 2rem;
+}
+.editionBar__button:focus {
+    border: none;
+    outline: none;
+}
+.editionBar__button:first-child {
+    padding-top: 1rem;
+}
+.editionBar__button:last-child {
+    padding-bottom: 1rem;
+}
+.editionBar__span {
+    visibility: hidden;
+    opacity: 1;
+    transition: opacity 5s;
+}
+
+.hiddenControl {
+    display: none;
+    visibility: hidden;
+}
+.showControl{
+    display:block;
+    visibility: visible;
+}
+.navBar__images {
+    width: 2.3rem;
+    height: 2.3rem;
+}

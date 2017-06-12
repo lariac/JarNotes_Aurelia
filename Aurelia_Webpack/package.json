@@ -35,6 +35,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "aurelia-bootstrap": "^0.1.19",
     "aurelia-bootstrapper-webpack": "^1.1.0",
     "aurelia-event-aggregator": "^1.0.1",
     "aurelia-framework": "^1.0.8",

@@ -6,11 +6,16 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
-    .globalResources('bootstrap/css/bootstrap.css')
+    .plugin('aurelia-bootstrap');
+    //.globalResources('bootstrap/css/bootstrap.css')
 
-
-  aurelia.start().then(a => {
-        a.setRoot('app', document.body);
-    });
+  aurelia.start().then(() => aurelia.setRoot());
 }
+// export function configure(aurelia) {
+//   aurelia.use
+//     .standardConfiguration()
+//     .developmentLogging()
+//     .plugin('aurelia-bootstrap');
 
+//   aurelia.start().then(() => aurelia.setRoot());
+// }

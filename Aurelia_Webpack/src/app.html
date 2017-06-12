@@ -13,12 +13,13 @@
         <div class="addNoteContainer">
           <form submit.trigger="addNote()" class="form-group noteText">
             <input type="text" value.bind="noteTitle" class="titleNoteControl">
-            <textarea type="text" value.bind="noteDescription" class="form-control noteContentFont" placeholder="Write a new note..."> </textarea>
-            <div className="editionNotesControl">
-              <div className="textButtons">
-                <button type="submit" class="editionButtonControls textButton">  
-                      <span className="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Save Note</span>
-                    </button>
+            <textarea type="text" value.bind="noteDescription" class="form-control noteContentFont" placeholder="Write a new note...">
+            </textarea>
+            <div class="editionNotesControl">
+              <div class="textButtons">
+                <button click.delegate = "addNote()" type="submit" class="editionButtonControls textButton buttons saveButton">  
+                    <span class="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Save Note</span>
+                </button>
               </div>
             </div>
           </form>

@@ -19,6 +19,12 @@ function getNotes(req, res) {
 //post Note
 function addNote(req, res) {
     const note = new Note(req.body);
+    console.log('ENTREEEEEE');
+    console.log('ADDDDDDD NOTE API');
+        console.log('est es el que pone');
+       console.log(req.body);
+        console.log(req.params);
+         // console.log(req.body.data);
     note.save(err => {
         if (!err) {
             res.status(201);

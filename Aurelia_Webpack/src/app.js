@@ -1,8 +1,10 @@
-import {Note} from './note';
-import {inject} from 'aurelia-framework';
+import { Note } from './note';
+import { inject } from 'aurelia-framework';
+import { HttpClient } from 'aurelia-fetch-client';
+let httpClient = new HttpClient();
 
 export class App {
-   constructor(http) {
+  constructor(http) {
     this.heading = "Notes";
     this.notes = [];
     this.noteTitle = '';
@@ -19,17 +21,31 @@ export class App {
     this.router = router;
   }
 
-   // Add a note
+  // Add a note
   addNote() {
-//    const url = 'http://localhost:3000/notes';
+    const newNote = { noteTitle: this.noteTitle, noteContent: this.noteDescription, folderId: '' }
+     
+    const urlNotes = 'http://localhost:3000/api/notes';
     if (this.noteDescription) {
       this.notes.push(new Note(this.noteTitle, this.noteDescription));
       this.noteDescription = '';
       this.noteTitle = '';
     }
-  }
+    console.log('newNOTE  ' + newNote);
+    console.log(newNote);
+    console.log('stringtify '+JSON.stringify(newNote));
+    httpClient.fetch(urlNotes, {
+      method: "POST",
+         body: JSON.stringify(newNote)
+      })
+      .then(response => response.json())
+      .then(data => {
+         console.log(data);
+      });
+   }
 
-// Remove a note
+
+  // Remove a note
   removeNote(note) {
     let index = this.notes.indexOf(note);
     if (index !== -1) {

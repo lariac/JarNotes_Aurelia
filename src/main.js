@@ -7,6 +7,8 @@ export function configure(aurelia) {
     .standardConfiguration()
     .developmentLogging()
     .plugin('aurelia-bootstrapper')
+    .plugin('aurelia-dialog')
+    .plugin('aurelia-http-client')
     .globalResources('bootstrap/css/bootstrap.css')
     .feature('resources');
 

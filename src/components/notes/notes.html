@@ -1,0 +1,16 @@
+<template>
+    <h2 id="informationPanelTittle" class="fontFamily"> ${heading} </h2>
+    <ul>
+        <li repeat.for="note of notes">
+            <div id="" class="infoPanelElements borderStyle ">
+                <div class="headerNoteContainer">
+                    <span class="noteAddedTitle">${note.title}</span>
+                    <button class="buttons infoPanelButtons" click.trigger="removeNote(note)"> 
+                          <img src='../src/images/trash-button.svg' class="navBar__images" /> 
+                      </button>
+                </div>
+                <p class="noteContentFont">${note.description}</p>
+            </div>
+        </li>
+    </ul>
+</template>

@@ -91,16 +91,23 @@
         "dependencies": [
           "jquery",
           {
-              "name": "bootstrap",
-              "path": "../node_modules/bootstrap/dist",
-              "main": "js/bootstrap.min",
-              "deps": ["jquery"],
-              "exports": "$",
-              "resources": [
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.min",
+            "deps": [
+              "jquery"
+            ],
+            "exports": "$",
+            "resources": [
               "css/bootstrap.css"
             ]
+          },
+          {
+            "name": "aurelia-dialog",
+            "main": "aurelia-dialog",
+            "path": "../node_modules/aurelia-dialog/dist/amd"
           }
-          ]
+        ]
       },
       {
         "name": "vendor-bundle.js",
@@ -148,7 +155,19 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "jquery"
+          "jquery",
+          {
+            "name": "aurelia-dialog",
+            "main": "aurelia-dialog",
+            "path": "../node_modules/aurelia-dialog/dist/amd",
+            "resources": []
+          },
+          {
+            "name": "aurelia-http-client",
+            "main": "aurelia-http-client",
+            "path": "../node_modules/aurelia-http-client/dist/amd",
+            "resources": []
+          }
         ],
         "copyFiles": {
           "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2": "bootstrap/fonts",

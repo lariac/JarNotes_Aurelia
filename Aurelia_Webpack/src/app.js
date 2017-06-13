@@ -76,6 +76,7 @@ export class App {
    }
 
 
+
   //Update a note
   updateNote() {
     this.noteEdited.title = this.noteTitle;
@@ -104,9 +105,6 @@ export class App {
     this.noteDescription = note.description;
     this.noteEdited = note;
   }
->>>>>>> d909f38193bffda3a0be03bef03ba98925bd59b9
-
-
 
 
 }

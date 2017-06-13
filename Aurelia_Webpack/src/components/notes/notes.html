@@ -1,6 +1,9 @@
 <template>
     <div id="panelInformation" class="infoPanel">
-        <h2 id="informationPanelTittle" class="fontFamily"> ${heading} </h2>
+        <h2 id="informationPanelTittle" class="fontFamily"> View ${heading} </h2>
+        <button class="buttons infoPanelButtons" click.trigger="getNotes()"> 
+            <img src= '../../../src/images/view-button.svg' class="navBar__images" />
+        </button>
         <ul>
             <li repeat.for="note of notes">
                 <div id="" class="infoPanelElements borderStyle">
@@ -9,7 +12,7 @@
                         <button class="buttons infoPanelButtons" click.trigger="removeNote(note)"> 
                           <img src= '../../../src/images/trash-button.svg' class="navBar__images" /> 
                       </button>
-                       <button class="buttons infoPanelButtons" click.trigger="editNote(note)"> 
+                        <button class="buttons infoPanelButtons" click.trigger="editNote(note)"> 
                          <img src= '../../../src/images/edit-button.svg' class="navBar__images" />
                       </button>
                     </div>

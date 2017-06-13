@@ -146,6 +146,7 @@ textarea.form-control {
 }
 .infoPanelButtons {
     margin-right: 1rem;
+    display: inline;
 }
 .hideComponent {
     display: none;
@@ -228,7 +229,11 @@ a:active{
 .buttons {
     background-color: transparent;
     border: none;
-    display:block;
+    display:inline;
+}
+
+h2{
+    display:inline;
 }
 
 .buttons:hover {

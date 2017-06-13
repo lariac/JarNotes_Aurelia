@@ -57,7 +57,6 @@ export class App {
   }
 
 
-<<<<<<< HEAD
   // Remove a note
    removeNote(note) {
     let index = this.notes.indexOf(note);
@@ -75,26 +74,7 @@ export class App {
          console.log(data);
       });
    }
-=======
-  //Remove a note
-  removeNote(note) {
-    console.log("El id de la nota es: " + note._id);
-    let index = this.notes.indexOf(note);
-    const deleteNote = { _id: note._id };
-    const urlNotes = 'http://localhost:3000/api/notes';
 
-    httpClient.fetch(urlNotes, {
-      method: "DELETE",
-      body: { data: note._id }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        if (index !== -1) {
-          this.notes.splice(index, 1);
-        }
-      });
-  }
 
   //Update a note
   updateNote() {

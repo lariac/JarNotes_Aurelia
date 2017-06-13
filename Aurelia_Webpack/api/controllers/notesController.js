@@ -18,15 +18,13 @@ function getNotes(req, res) {
 
 //post Note
 function addNote(req, res) {
+    console.log("El body es: " + req.body.noteTitle + " params es: ");
     const note = new Note(req.body);
     console.log('ENTREEEEEE');
     console.log('ADDDDDDD NOTE API');
-        console.log('est es el que pone');
-       console.log(req.body);
-        console.log(req.params);
-         // console.log(req.body.data);
     note.save(err => {
         if (!err) {
+            console.log("NO TUVE ERRORES EN POST!");
             res.status(201);
             res.json(note);
         }
@@ -53,6 +51,8 @@ function updateNote(req, res) {
 
 //delete Note
 function deleteNote (req, res) {
+    console.log("ESTOY EN DELETE!");
+    console.log("id en delete es: " + req.body._id );
     Note.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
     if (!err) {
       res.status(204);

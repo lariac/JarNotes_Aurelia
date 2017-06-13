@@ -1,6 +1,6 @@
 import { Note } from './note';
 import { inject } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-fetch-client';
+import { HttpClient, json } from 'aurelia-fetch-client';
 let httpClient = new HttpClient();
 
 export class App {
@@ -9,6 +9,7 @@ export class App {
     this.notes = [];
     this.noteTitle = '';
     this.noteDescription = '';
+    this.editEvent = false;
   }
   configureRouter(config, router) {
     config.title = '';
@@ -22,35 +23,80 @@ export class App {
   }
 
   // Add a note
+  saveNote() {
+    if(this.editEvent===true){
+    //  updateNote();
+       console.log("ENTRE A UPDATE NOTE!");
+      this.editEvent = false;
+    }
+    else{
+      console.log("ENTRE A ADD NOTE!");
+      addNote();
+    }
+  }
+
   addNote() {
     const newNote = { noteTitle: this.noteTitle, noteContent: this.noteDescription, folderId: '' }
-     
     const urlNotes = 'http://localhost:3000/api/notes';
-    if (this.noteDescription) {
-      this.notes.push(new Note(this.noteTitle, this.noteDescription));
-      this.noteDescription = '';
-      this.noteTitle = '';
-    }
-    console.log('newNOTE  ' + newNote);
-    console.log(newNote);
-    console.log('stringtify '+JSON.stringify(newNote));
+
     httpClient.fetch(urlNotes, {
       method: "POST",
-         body: JSON.stringify(newNote)
-      })
+      body: json(newNote)
+    })
       .then(response => response.json())
       .then(data => {
-         console.log(data);
+        console.log(data);
+        if (this.noteDescription) {
+          this.notes.push(new Note(this.noteTitle, this.noteDescription, data._id));
+          this.noteDescription = '';
+          this.noteTitle = '';
+        }
       });
-   }
+  }
 
 
-  // Remove a note
+  //Remove a note
   removeNote(note) {
+    console.log("El id de la nota es: " + note._id);
     let index = this.notes.indexOf(note);
-    if (index !== -1) {
-      this.notes.splice(index, 1);
-    }
+    const deleteNote = { _id: note._id };
+    const urlNotes = 'http://localhost:3000/api/notes';
+
+    httpClient.fetch(urlNotes, {
+      method: "DELETE",
+      body: { data: note._id }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (index !== -1) {
+          this.notes.splice(index, 1);
+        }
+      });
+  }
+
+  //Update a note
+  updateNote(note) {
+
+    const updateNote = { noteTitle: note.noteTitle, noteContent: note.noteDescription, folderId: '' }
+    httpClient.fetch(urlNotes, {
+      method: "PUT",
+      body: { data: note._id }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (index !== -1) {
+          this.notes.splice(index, 1);
+        }
+      });
+  }
+
+  //Edit a note
+  editNote(note){
+    this.editEvent = true;
+    this.noteTitle = note.title;
+    this.noteDescription = note.description;
   }
 
 

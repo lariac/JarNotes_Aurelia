@@ -51,16 +51,16 @@ function updateNote(req, res) {
 
 //delete Note
 function deleteNote (req, res) {
+    Note.findByIdAndRemove(req.params._id, (err, data) => {
     console.log("ESTOY EN DELETE!");
     console.log("id en delete es: " + req.body._id );
-    Note.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
+        console.log("id en delete PARAMSS: " + req.params._id );
+    //Note.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
     if (!err) {
-      res.status(204);
-      res.json(data);
+      res.status(204).json({});
     }
     else {
-      res.status(500);
-      res.json(err);
+      res.status(500).json({});
     }
   });
 };

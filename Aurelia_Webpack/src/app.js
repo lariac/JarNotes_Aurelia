@@ -15,13 +15,22 @@ export class App {
   configureRouter(config, router) {
     config.title = '';
     config.map([
-      { route: ['', 'notes'], name: 'notes', moduleId: './components/notes/notes', nav: true, title: 'Notes', settings: '../src/images/notes-button.svg' },
-      { route: 'tags', name: 'tags', moduleId: './components/tags/tags', nav: true, title: 'Tags', settings: '../src/images/tag-button.svg' },
-      { route: 'notebooks', name: 'notebooks', moduleId: './components/notebooks/notebooks', nav: true, title: 'Notebooks', settings: '../src/images/folder-button.svg' },
+      { route: ['', 'notes'], name: 'notes', moduleId: './components/notes/notes', nav: true, title: 'Notes', settings: {getNotes:'getNotes()', imagePath: '../src/images/notes-button.svg' } },
+      { route: 'tags', name: 'tags', moduleId: './components/tags/tags', nav: true, title: 'Tags', settings: {getNotes: 'getNotes()',imagePath: '../src/images/tag-button.svg' } },
+      { route: 'notebooks', name: 'notebooks', moduleId: './components/notebooks/notebooks', nav: true, title: 'Notebooks', settings: {getNotes: 'getNotes()', imagePath: '../src/images/folder-button.svg' } },
     ]);
 
     this.router = router;
   }
+
+  // Get a note
+  getNotes() {
+      httpClient.fetch('http://localhost:3000/api/notes/')
+      .then(response => response.json())
+      .then(data => {
+         console.log(data);
+      });
+   }
 
   // Add a note
   saveNote() {

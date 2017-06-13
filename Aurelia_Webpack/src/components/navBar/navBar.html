@@ -1,12 +1,15 @@
 <template bindable="router">
 
   <ul class="navBar">
-    <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+    <li click.trigger="${row.settings.getNotes} " repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
       <a data-toggle="collapse" data-target="#notes-navbar-collapse.in" href.bind="row.href " class="navBar__button buttons visibleControl ">
         <span class="navBarTitle" data-toggle="tooltip" data-placement="top">${row.title}</span>
-        <img src="${row.settings} " class="navBar__images "/>
+        <img src="${row.settings.imagePath} " class="navBar__images "/>
       </a>
     </li>
   </ul>
 
 </template>
+
+
+

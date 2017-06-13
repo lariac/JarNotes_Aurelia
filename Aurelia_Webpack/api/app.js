@@ -8,12 +8,8 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-app.use(enableCors);  //CORREGIR
+app.use(enableCors);  
 
-console.log('aantess');
-
-
-console.log('despuessss');
 //middleware of express
 app.use('/api/', routes); //Se utiliza para el localhost
 // app.use(function (req, res, next) {

@@ -7,7 +7,7 @@ const foldersController =  require('../controllers/foldersController');
 router.get('/notes', noteAPI.getNotes);
 router.post('/notes', noteAPI.addNote);
 router.put('/notes', noteAPI.updateNote);
-router.delete('/notes', noteAPI.deleteNote);
+router.delete('/notes/:_id', noteAPI.deleteNote);
 
 router.get('/tags', tagController.getTags);
 router.post('/tags', tagController.addTag);

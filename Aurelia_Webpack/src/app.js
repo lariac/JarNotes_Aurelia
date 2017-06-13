@@ -46,12 +46,22 @@ export class App {
 
 
   // Remove a note
-  removeNote(note) {
+   removeNote(note) {
     let index = this.notes.indexOf(note);
     if (index !== -1) {
       this.notes.splice(index, 1);
-    }
-  }
+    } 
+    console.log('NOTE ID: ');
+    console.log(note._id);
+    const urlNotes = 'http://localhost:3000/api/notes/'+ note._id;
+      httpClient.fetch(urlNotes, {
+         method: "DELETE"
+      })
+      .then(response => response.json())
+      .then(data => {
+         console.log(data);
+      });
+   }
 
 
 

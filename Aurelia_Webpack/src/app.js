@@ -10,6 +10,7 @@ export class App {
     this.noteTitle = '';
     this.noteDescription = '';
     this.editEvent = false;
+    this.noteEdited = '';
   }
   configureRouter(config, router) {
     config.title = '';
@@ -24,14 +25,15 @@ export class App {
 
   // Add a note
   saveNote() {
+    console.log("ENTRE A SAVE NOTE! CON EDIT EVENT EN: " + this.editEvent);
     if(this.editEvent===true){
-    //  updateNote();
+      this.updateNote();
        console.log("ENTRE A UPDATE NOTE!");
       this.editEvent = false;
     }
     else{
       console.log("ENTRE A ADD NOTE!");
-      addNote();
+      this.addNote();
     }
   }
 
@@ -94,9 +96,12 @@ export class App {
   // }
 
   //Update a note
-  updateNote(note) {
-
-    const updateNote = { noteTitle: note.noteTitle, noteContent: note.noteDescription, folderId: '' }
+  updateNote() {
+    this.noteEdited.title = this.noteTitle;
+    this.noteEdited.description = this.noteDescription;
+    this.noteTitle='';
+    this.noteDescription= '';
+  /*  const updateNote = { noteTitle: note.noteTitle, noteContent: note.noteDescription, folderId: '' }
     httpClient.fetch(urlNotes, {
       method: "PUT",
       body: { data: note._id }
@@ -107,14 +112,16 @@ export class App {
         if (index !== -1) {
           this.notes.splice(index, 1);
         }
-      });
-  }
+      }); */
+
+  } 
 
   //Edit a note
   editNote(note){
     this.editEvent = true;
     this.noteTitle = note.title;
     this.noteDescription = note.description;
+    this.noteEdited = note;
   }
 
 
